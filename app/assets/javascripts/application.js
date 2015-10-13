@@ -33,7 +33,11 @@ function showLastRow() {
 }
 
 function deleteSelect() {
-
+  var count = document.getElementsByClassName("destroy").length;
+  var checkbox = document.getElementsByClassName("destroy")[count -1];
+  var hideRow = event.target.parentElement.parentElement.parentElement;
+  checkbox.checked = true;
+  hideRow.style.display = "none";
 }
 
 function soSmooth() {
