@@ -16,24 +16,58 @@
 //= require_tree .
 
 function disableOnClick() {
-  amount = document.getElementsByClassName('btn').length
-  document.getElementsByClassName('btn')[amount - 1].disabled = true;
-  document.getElementsByClassName('btn')[amount - 1].style.color = "white";
+  $(".btn").last().attr("disabled", true)
+  $(".edit_course").submit()
+  // A BETTER WAY IN JS
+  // event.target.disabled = true;
+  // event.target.style.color = "white"
+  // event.target.form.submit();
+
+  // WHAT I CAME UP WITH (TERRIBLE)
+  // amount = document.getElementsByClassName('btn').length
+  // document.getElementsByClassName('btn')[amount - 1].disabled = true;
+  // document.getElementsByClassName('btn')[amount - 1].style.color = "white";
 }
 
-window.onload = function() {
-  var findrow = document.getElementsByClassName('association container');
-  var last = findrow[findrow.length - 1];
-  last.style.display = "none";
+$(function() {
+  $(".btn").last().on("click", disableOnClick)
+});
+
+function hideLastRow() {
+  $(".association.container").last().hide()
+
+  // OR $(".association.container").last().hide();
+
+  // var findrow = document.getElementsByClassName('association container');
+  // var last = findrow[findrow.length - 1];
+  // last.style.display = "none";
 }
+
+$(function() {
+  $( document ).ready(hideLastRow);
+});
 
 function showLastRow() {
-  var findrow = document.getElementsByClassName('association container');
-  var last = findrow[findrow.length - 1];
-  last.style.display = "";
+  $(".association.container").last().show()
+
+  // var findrow = document.getElementsByClassName('association container');
+  // var last = findrow[findrow.length - 1];
+  // last.style.display = "";
 }
 
+$(function() {
+  $(".new-association").on("click", showLastRow);
+});
+
 function deleteSelect() {
-  document.getElementsByClassName("destroy")[document.getElementsByClassName("destroy").length -1].checked = true;
-  event.target.parentElement.parentElement.parentElement.style.display = "none";
+  $(this).closest(".association.container").hide()
+  $(this).closest(".destroy").prop("checked", true)
+  event.preventDefault();
+  // document.getElementsByClassName("destroy")[document.getElementsByClassName("destroy").length -1].checked = true;
+  // event.target.parentElement.parentElement.parentElement.style.display = "none";
 }
+
+$(function() {
+  $(".btn-danger").on("click", deleteSelect);
+  return false;
+});
