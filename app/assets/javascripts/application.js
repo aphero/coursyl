@@ -33,13 +33,6 @@ function showLastRow() {
 }
 
 function deleteSelect() {
-  var count = document.getElementsByClassName("destroy").length;
-  var checkbox = document.getElementsByClassName("destroy")[count -1];
-  var hideRow = event.target.parentElement.parentElement.parentElement;
-  checkbox.checked = true;
-  hideRow.style.display = "none";
-}
-
-function soSmooth() {
-
+  document.getElementsByClassName("destroy")[document.getElementsByClassName("destroy").length -1].checked = true;
+  event.target.parentElement.parentElement.parentElement.style.display = "none";
 }
