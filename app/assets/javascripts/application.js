@@ -16,8 +16,9 @@
 //= require_tree .
 
 function disableOnClick() {
-  document.getElementsByClassName('btn')[6].disabled = true;
-  document.getElementsByClassName('btn')[6].style.color = "white";
+  amount = document.getElementsByClassName('btn').length
+  document.getElementsByClassName('btn')[amount - 1].disabled = true;
+  document.getElementsByClassName('btn')[amount - 1].style.color = "white";
 }
 
 window.onload = function() {
