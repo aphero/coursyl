@@ -14,3 +14,28 @@
 //= require jquery_ujs
 //= require d3
 //= require_tree .
+
+function disableOnClick() {
+  document.getElementsByClassName('btn')[6].disabled = true;
+  document.getElementsByClassName('btn')[6].style.color = "white";
+}
+
+window.onload = function() {
+  var findrow = document.getElementsByClassName('association container');
+  var last = findrow[findrow.length - 1];
+  last.style.display = "none";
+}
+
+function showLastRow() {
+  var findrow = document.getElementsByClassName('association container');
+  var last = findrow[findrow.length - 1];
+  last.style.display = "";
+}
+
+function deleteSelect() {
+
+}
+
+function soSmooth() {
+
+}
