@@ -18,8 +18,8 @@
 //= require jquery.datetimepicker/init
 
 function disableOnClick() {
-  $(".btn").last().attr("disabled", true)
-  $(".edit_course").submit()
+  $(event.target).prop("disabled", true);
+  $(event.target).closest("form").submit();
   // A BETTER WAY IN JS
   // event.target.disabled = true;
   // event.target.style.color = "white"
@@ -32,11 +32,11 @@ function disableOnClick() {
 }
 
 $(function() {
-  $(".btn").last().on("click", disableOnClick)
+  $("input[type=submit]").on("click", disableOnClick);
 });
 
 function hideLastRow() {
-  $(".association.container").last().hide()
+  $(".association.container").last().hide();
 
   // OR $(".association.container").last().hide();
 
@@ -73,27 +73,30 @@ $(function() {
   $(".btn-danger").on("click", deleteSelect);
 });
 
-$(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
+// $(function() {
+//   $('a[href*=#]:not([href=#])').click(function() {
+//     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+//       var target = $(this.hash);
+//       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+//       if (target.length) {
+//         $('html,body').animate({
+//           scrollTop: target.offset().top
+//         }, 1000);
+//         return false;
+//       }
+//     }
+//   });
+// });
 
-function popModal() {
-  $('#super_modal').modal('show')
-}
+// The following commented code was the way to load the modal before
+// discovering that Bootstrap can manage this already.
+
+// function popModal() {
+//   $('#super_modal').modal('show')
+// }
 
 $('.datetimepicker').datetimepicker();
 
-$(function() {
-  $(".fa.fa-calendar").on("click", popModal)
-})
+// $(function() {
+//   $(".fa.fa-calendar").on("click", popModal)
+// })

@@ -15,19 +15,19 @@
       <%= link_to '<i class="fa fa-legal" title="Grade Assignment"></i>'.html_safe, grade_matrix_assignment_path(assignment) %>
     <% end %>
     <%= link_to '<i class="fa fa-bar-chart-o" title="View Grades"></i>'.html_safe, view_grades_assignment_path(assignment) %>
-    <%= link_to '<i class="fa fa-calendar" title="Change Dates"></i>'.html_safe, "#" %>
-    <div id="super_modal" class="modal hide fade">
+    <%= link_to '<i class="fa fa-calendar" title="Change Dates"></i>'.html_safe, "#myModal#{assignment.id}", data: {toggle: "modal"} %>
+    <div id="myModal<%= assignment.id %>" class="modal hide fade">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3>Change Date</h3>
+        <h3>Change Date for <%= assignment.name %></h3>
       </div>
       <div class="modal-body">
-        <%= form_for assignment, method: :update do |f| %>
+        <%= form_for assignment do |f| %>
           <%= f.label :active_at %>
-          <%= f.text_field :active_at, class: "datetimepicker", value: assignment[:active_at], method: :update %>
+          <%= f.text_field :active_at, class: "datetimepicker" %>
 
           <%= f.label :due_at %>
-          <%= f.text_field :due_at, class: "datetimepicker", value: assignment[:active_at], method: :update  %>
+          <%= f.text_field :due_at, class: "datetimepicker" %>
           <div class="modal-footer">
             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
             <%= f.submit "Save Changes", class: "btn btn-primary" %>
