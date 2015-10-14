@@ -33,7 +33,7 @@ gem 'd3-rails'
 gem 'rails-reveal-js'
 gem 'font-awesome-rails'
 
-# This should hopefully enable datetimepicker, but we'll see
+# This should hopefully enable datetimepicker, but we'll see.  It does!
 gem 'jquery-datetimepicker-rails', '~> 2.4.1.0'
 
 gem 'devise'
