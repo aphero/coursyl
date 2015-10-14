@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require d3
 //= require_tree .
+//= require jquery.datetimepicker
+//= require jquery.datetimepicker/init
 
 function disableOnClick() {
   $(".btn").last().attr("disabled", true)
@@ -90,6 +92,7 @@ function popModal() {
   $('#super_modal').modal('show')
 }
 
+$('.datetimepicker').datetimepicker();
 
 $(function() {
   $(".fa.fa-calendar").on("click", popModal)
